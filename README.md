@@ -1,7 +1,7 @@
 # consul
 #执行效果
 
-#模拟node1 user sever_down
+#模拟node1 user order sever_down
 
 运行脚本
 ```
