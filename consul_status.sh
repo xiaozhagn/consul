@@ -21,19 +21,19 @@ do
   curl -XPUT http://${CONSUL_ADDRESS}/v1/agent/service/deregister/${critical}
 done
 #创建ip地址池,微服务地址
-service_ip=("10.10.10.1" "10.10.10.2" "10.10.10.3")
+service_ip=("10.10.10.1" "10.10.10.2" "10.10.10.3" "10.10.10.4")
 #定义一个函数
 consul1 () {
 #把获取的service ip进行循环
 for  ip in ${CONSUL_IP}; do
   #创建if条件判断是否匹配地址池IP
-  if [ ${ip} == ${service_ip[0]} ] || [ ${ip} == ${service_ip[1]} ] || [ ${ip} == ${service_ip[2]} ];then
+  if [ ${ip} == ${service_ip[0]} ] || [ ${ip} == ${service_ip[1]} ] || [ ${ip} == ${service_ip[2]} ] || [ ${ip} == ${service_ip[3]} ] ;then
     #获取服务端口，进行端口服务的匹配，触发条件
      for port in  ${CONSUL_PORT}; do  
         #匹配consul服务端口
         if   [ ${port} == 18301 ];then 
              #echo $ip $port
-             #sshpass -p '!@#$%^&*()1qaz@WSX' ssh root@${ip} 'touch /data/1222'
+             #sshpass -p 'fg^$%^&*()1$%z@#GX' ssh root@${ip} 'touch /data/1222'
              ssh www@${ip} '/usr/local/php/bin/php /data/wwwroot/service-user/bin/swoft rpc:restart'
              echo "${ip}:service-user was restart by `date +%F-%H-%M`" >> ${logspwd}/`date +%Y%m`.log
         elif [ ${port} == 18302 ];then 
