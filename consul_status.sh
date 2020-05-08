@@ -1,5 +1,5 @@
 #!/bin/bash
-# mz 2020-03-24
+# mz 2020-05-7
  
 #consul的地址
 CONSUL_ADDRESS="10.10.10.1:8500"
